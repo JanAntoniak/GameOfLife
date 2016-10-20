@@ -4,9 +4,15 @@ public class Cell {
 
     private int positionX;
     private int positionY;
-    private final int DEAD = 0;
-    private final int ALIVE = 1;
     private int status;
+    public final static int DEAD = 0;
+    public final static int ALIVE = 1;
+
+    public Cell(Cell cell) {
+        this.positionX = cell.positionX;
+        this.positionY = cell.positionY;
+        this.status = cell.status;
+    }
 
     public Cell(int positionX, int positionY) {
         this.positionX = positionX;
@@ -16,6 +22,10 @@ public class Cell {
 
     public boolean isAlive() {
         return (ALIVE == status);
+    }
+
+    public int getStatus() {
+        return status;
     }
 
     public int getX() {
