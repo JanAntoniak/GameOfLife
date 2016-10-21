@@ -2,9 +2,12 @@ package com.janantoniak.GameOfLife;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Board extends JPanel {
+public class Board extends JComponent implements ActionListener{
 
+    private Timer timer;
     private final int partsHorizontal;
     private final int partsVertical;
     private int brickSizeX;
@@ -17,17 +20,24 @@ public class Board extends JPanel {
         this.partsVertical = partsVertical;
         this.ground = ground;
 
-        setBackground(new Color(60, 63, 65));
-        setVisible(true);
+        timer = new Timer(500, this);
+
+        timer.start();
+    }
+
+    @Override
+    public Dimension getPreferredSize() {
+        return new Dimension(400, 400);
     }
 
     @Override
     public synchronized void paintComponent(Graphics g) {
+        super.paintComponent(g);
 
+        setBackground(Color.cyan);
         brickSizeX = getWidth()/partsHorizontal;
         brickSizeY = getHeight()/partsVertical;
 
-        super.paintComponent(g);
         for(int x = 0; x < partsHorizontal; x++) {
             for(int y = 0; y < partsVertical; y++) {
                 int type = ground.isAlive(x,y) ? 1 : 0;
@@ -52,4 +62,9 @@ public class Board extends JPanel {
     }
 
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+       ground.nextCycle();
+        repaint();
+    }
 }
