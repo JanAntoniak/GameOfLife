@@ -20,14 +20,14 @@ public class Board extends JComponent implements ActionListener{
         this.partsVertical = partsVertical;
         this.ground = ground;
 
-        timer = new Timer(500, this);
+        timer = new Timer(10, this);
 
         timer.start();
     }
 
     @Override
     public Dimension getPreferredSize() {
-        return new Dimension(400, 400);
+        return new Dimension(700, 700);
     }
 
     @Override
