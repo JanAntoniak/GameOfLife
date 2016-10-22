@@ -40,10 +40,10 @@ public class Ground {
         return result;
     }
 
-    public void setCellStatus(int i, int j, int status) {
-        if(0 == status)
+    public void setCellStatus(int i, int j, Cell.Status status) {
+        if(Cell.Status.DEAD == status)
             ground[i][j].setDead();
-        else if(1 == status)
+        else if(Cell.Status.ALIVE == status)
             ground[i][j].setAlive();
     }
 

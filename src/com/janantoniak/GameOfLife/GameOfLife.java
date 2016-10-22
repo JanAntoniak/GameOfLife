@@ -87,7 +87,7 @@ public class GameOfLife {
     private void addStartingPoints(ArrayList<Point> list) {
 
         for (Point p: list) {
-            ground.setCellStatus(p.x, p.y, 1);
+            ground.setCellStatus(p.x, p.y, Cell.Status.ALIVE);
         }
     }
 
