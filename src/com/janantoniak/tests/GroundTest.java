@@ -27,6 +27,7 @@ public class GroundTest {
                 ground.setCellStatus(i, j, 0);
             }
         }
+
         ground.setCellStatus(1,1,1);
         ground.nextCycle();
         Assert.assertEquals(ground.isAlive(1,1), false);

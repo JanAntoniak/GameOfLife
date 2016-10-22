@@ -67,7 +67,6 @@ public class GameOfLife {
                 for (int i = 0; i < 1000; ++i) {
                     if(!list.contains(point = new Point(rm.nextInt(99), rm.nextInt(100)))) {
                         list.add(point);
-                        System.out.println(list.size());
                     }
                     else
                         --i;

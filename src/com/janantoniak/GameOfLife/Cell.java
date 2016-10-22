@@ -4,9 +4,10 @@ public class Cell {
 
     private int positionX;
     private int positionY;
-    private int status;
-    public final static int DEAD = 0;
-    public final static int ALIVE = 1;
+    public enum Status {
+        ALIVE, DEAD
+    }
+    Cell.Status status;
 
     public Cell(Cell cell) {
         this.positionX = cell.positionX;
@@ -17,15 +18,19 @@ public class Cell {
     public Cell(int positionX, int positionY) {
         this.positionX = positionX;
         this.positionY = positionY;
-        this.status = DEAD;
+        this.status = Status.DEAD;
     }
 
     public boolean isAlive() {
-        return (ALIVE == status);
+        return (Status.ALIVE == status);
     }
 
-    public int getStatus() {
-        return status;
+    public void setAlive() {
+        this.status = Status.ALIVE;
+    }
+
+    public void setDead() {
+        this.status = Status.DEAD;
     }
 
     public int getX() {
@@ -34,13 +39,5 @@ public class Cell {
 
     public int getY() {
         return this.positionY;
-    }
-
-    public void setAlive() {
-        this.status = ALIVE;
-    }
-
-    public void setDead() {
-        this.status = DEAD;
     }
 }
