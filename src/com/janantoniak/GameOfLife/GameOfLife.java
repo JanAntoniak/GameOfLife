@@ -3,6 +3,7 @@ package com.janantoniak.GameOfLife;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class GameOfLife {
 
@@ -56,6 +57,22 @@ public class GameOfLife {
                     add(new Point(55,19)); add(new Point(55,18));
 
                 }};
+
+                /**
+                 * Some random generated alive cells
+                 */
+
+                Point point;
+                Random rm = new Random();
+                for (int i = 0; i < 1000; ++i) {
+                    if(!list.contains(point = new Point(rm.nextInt(99), rm.nextInt(100)))) {
+                        list.add(point);
+                        System.out.println(list.size());
+                    }
+                    else
+                        --i;
+                }
+
                 addStartingPoints(list);
 
 

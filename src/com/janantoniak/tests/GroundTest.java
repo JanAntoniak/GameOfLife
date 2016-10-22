@@ -11,7 +11,6 @@ public class GroundTest {
     public void testCreate() {
         Ground ground = new Ground(10,10);
 
-        Assert.assertNotNull(ground);
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 Assert.assertNotNull(ground.getCell(i,j));

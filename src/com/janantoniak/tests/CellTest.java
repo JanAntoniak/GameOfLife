@@ -8,7 +8,6 @@ public class CellTest {
     @Test
     public void testCreate() {
         Cell cell = new Cell(3,2);
-        Assert.assertNotNull(cell);
         Assert.assertEquals(3, cell.getX());
         Assert.assertEquals(2, cell.getY());
         Assert.assertEquals(cell.isAlive(), false);
